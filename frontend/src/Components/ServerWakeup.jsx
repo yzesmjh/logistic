@@ -14,8 +14,8 @@ const IS_LOCAL = !PING_URL || PING_URL.includes("localhost");
 
 // Phase messages shown as time passes (gives the user helpful context)
 const PHASES = [
-  { after: 0,  text: "Waking up the server" },
-  { after: 8,  text: "Connecting to the database" },
+  { after: 0,  text: "loading.." },
+  { after: 8,  text: "loading..." },
   { after: 18, text: "Almost there" },
   { after: 30, text: "Taking a little longer than usual — hang tight" },
 ];
@@ -128,7 +128,7 @@ export default function ServerWakeup({ children }) {
         )}
         {status === "error" && (
           <p className="text-red-400 text-base font-semibold text-center mb-2">
-            Could not reach the server
+            Could not reach the server please check your internet connection and try again.
           </p>
         )}
 
