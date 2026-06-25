@@ -7,8 +7,9 @@ import useHeaderData from "../Hooks/useHeaderData";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
+import { BASE_URL as BaseUrl } from "../config";
+
 const AddUserForm = () => {
-const BaseUrl = import.meta.env.VITE_BASEURL;
 
   const navigate = useNavigate();
   const { token } = useHeaderData();

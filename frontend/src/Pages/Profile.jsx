@@ -1,22 +1,29 @@
-import { useLayoutEffect } from "react";
+import { useState, useLayoutEffect } from "react";
 import Aside from "../Components/Dashboard/Aside";
-import useHeaderData from "../Hooks/useHeaderData";
+import Header from "../Components/Dashboard/Header";
 import ProfileMain from "../Components/Dashboard/ProfileMain";
+import useHeaderData from "../Hooks/useHeaderData";
 
-const Profile = () => {
-  const { userInfo } = useHeaderData();
+export default function Profile() {
+  const { userInfo, token } = useHeaderData();
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   useLayoutEffect(() => {
-    document.title = "Fed.Exx...";
+    document.title = "FedyTransist | Profile";
   }, []);
 
   return (
-    <div className="bg-gray-100 font-family-karla flex">
-      <Aside user={userInfo} />
-
-      <ProfileMain />
+    <div className="flex h-screen overflow-hidden bg-gray-50">
+      <Aside
+        user={userInfo}
+        token={token}
+        isOpen={sidebarOpen}
+        onClose={() => setSidebarOpen(false)}
+      />
+      <div className="flex flex-col flex-1 min-w-0 overflow-hidden">
+        <Header onMenuClick={() => setSidebarOpen(true)} />
+        <ProfileMain />
+      </div>
     </div>
   );
-};
-
-export default Profile;
+}

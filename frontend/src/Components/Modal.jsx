@@ -1,62 +1,79 @@
-import React, { useState } from 'react';
-import TransferForm from './TransferForm';
+import { useState } from "react";
+import PropTypes from "prop-types";
 
+// ── Inner modal shell ────────────────────────────────────────────────────────
 const MyModal = ({ isOpen, onClose, children, title }) => {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 flex items-center w-full justify-center z-50">
-      <div className="absolute inset-0 bg-gray-900 opacity-50"></div>
-      <div className="bg-white rounded-lg p-8 z-50 sm:w-1/2 w-[90%]">
-        <div className="flex justify-between">
-        <p className="text-lg">{title}</p>
+    <div className="fixed inset-0 flex items-center justify-center z-[200] p-4">
+      {/* Backdrop — click to close */}
+      <div
+        className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+        onClick={onClose}
+        aria-hidden="true"
+      />
+
+      {/* Content card — `relative` is required so z-index beats the backdrop */}
+      <div className="relative bg-white rounded-2xl shadow-2xl w-full max-w-lg max-h-[90vh] flex flex-col">
+        {/* Header */}
+        <div className="flex items-center justify-between px-6 py-4 border-b border-gray-100 flex-shrink-0">
+          <h2 className="text-base font-bold text-gray-900">{title}</h2>
           <button
             onClick={onClose}
-            className="text-gray-500 hover:text-gray-700 focus:outline-none focus:text-gray-700"
+            className="w-8 h-8 rounded-full hover:bg-gray-100 flex items-center justify-center text-gray-400 hover:text-gray-700 transition-colors text-lg leading-none"
+            aria-label="Close"
           >
-            Close
+            ✕
           </button>
         </div>
-        {children}
+
+        {/* Scrollable body */}
+        <div className="flex-1 overflow-y-auto px-6 py-5">
+          {children}
+        </div>
       </div>
     </div>
   );
 };
 
-const Modal = ({caption, captionButton, modalContent}) => {
+// ── Public Modal wrapper ─────────────────────────────────────────────────────
+const Modal = ({ caption, captionButton, modalContent }) => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const openModal = () => {
-    setIsOpen(true);
-  };
-
-  const closeModal = () => {
-    setIsOpen(false);
-  };
-
   return (
-    <div>
-    {
-        captionButton ?
-        <button onClick={openModal} className="bg-gradient-to-r from-[#100257] to-[#BA0D76] 
-                  dark:from-[#100257] dark:to-[#BA0D76] hover:from-[#0d0148] hover:to-[#e01c92]
- text-white cursor-pointer font-bold py-2 px-4 rounded">
-        {caption}
-      </button>
-         : <span onClick={openModal} className='cursor-pointer'>
-         
-         {caption}
-         </span>
-    }
-      
-      <MyModal isOpen={isOpen} title={caption} onClose={closeModal}>
-        <div className='flex justify-center max-h-[70vh] h-auto overflow-auto'>
-        
+    <>
+      {captionButton ? (
+        <button
+          onClick={() => setIsOpen(true)}
+          className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold py-2.5 px-4 rounded-xl text-sm transition-all duration-200 shadow-sm hover:shadow-md"
+        >
+          {caption}
+        </button>
+      ) : (
+        <button
+          onClick={() => setIsOpen(true)}
+          className="w-full text-left text-sm font-medium text-blue-600 hover:text-blue-700 transition-colors py-1"
+        >
+          {caption}
+        </button>
+      )}
+
+      <MyModal isOpen={isOpen} title={caption} onClose={() => setIsOpen(false)}>
         {modalContent}
-        </div>
       </MyModal>
-    </div>
+    </>
   );
+};
+
+Modal.propTypes = {
+  caption:       PropTypes.string.isRequired,
+  captionButton: PropTypes.bool,
+  modalContent:  PropTypes.node.isRequired,
+};
+
+Modal.defaultProps = {
+  captionButton: false,
 };
 
 export default Modal;

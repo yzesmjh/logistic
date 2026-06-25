@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useState } from "react";
+import { useLayoutEffect, useState } from "react";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
@@ -6,11 +6,12 @@ import * as Yup from "yup";
 import { ThreeCircles } from "react-loader-spinner";
 import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
+import { BASE_URL } from "../config";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const BaseUrl = import.meta.env.VITE_BASEURL;
+  const BaseUrl = BASE_URL;
   const navigate = useNavigate();
 
   useLayoutEffect(() => {
@@ -282,7 +283,7 @@ const Login = () => {
           {/* Additional Links */}
           <div className="mt-8 text-center">
             <p className="text-gray-600 dark:text-gray-400 text-sm">
-              Don't have an account?{" "}
+              Don&apos;t have an account?{" "}
               <a
                 href="#"
                 className="text-purple-600 hover:text-purple-500 font-semibold transition-colors duration-200"
