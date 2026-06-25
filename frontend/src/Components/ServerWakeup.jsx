@@ -149,7 +149,7 @@ export default function ServerWakeup({ children }) {
         {/* ── Sub-hint ───────────────────────────────────────────────── */}
         {status === "waking" && (
           <p className="text-white/40 text-xs text-center mt-1">
-            Our server sleeps when idle. First visits take up to 30 seconds.
+            Loading please wait...
             {elapsed > 0 && (
               <span className="block mt-1 text-white/30">{elapsed}s elapsed</span>
             )}
