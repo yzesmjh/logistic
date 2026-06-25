@@ -53,6 +53,12 @@ app.get("/", (req, res) => {
   res.send("Home Page");
 });
 
+// Ping endpoint — called by the frontend on first load to wake this
+// Render instance from sleep. Returns immediately once the server is up.
+app.get("/ping", (req, res) => {
+  res.status(200).json({ status: "ok", message: "Server is awake" });
+});
+
 //so that file can be accessed
 app.use("/uploads", express.static("uploads"));
 
