@@ -1,4 +1,5 @@
 import { useState } from "react";
+import PropTypes from "prop-types";
 
 export default function ServicesSection() {
   const [activeService, setActiveService] = useState(0);
@@ -7,139 +8,139 @@ export default function ServicesSection() {
     {
       id: 1,
       icon: "🚚",
-      title: "Express Delivery",
+      title: "Priority Express",
       description:
-        "Fast and reliable express shipping services for time-sensitive packages with real-time tracking.",
+        "Got a deadline? We love deadlines. Your package moves first, every time, with live updates at every step of the journey.",
       features: [
-        "Next-day delivery",
-        "Real-time tracking",
-        "Dedicated support",
-        "Secure handling",
+        "Guaranteed delivery windows",
+        "Live GPS updates",
+        "Signature on delivery",
+        "Damage-free or refunded",
       ],
-      price: "Custom Quote",
-      deliveryTime: "1-2 days",
-      coverage: "150+ countries",
+      price: "From ₦4,500",
+      deliveryTime: "Same / Next Day",
+      coverage: "160+ countries",
       gradient: "from-blue-500 to-cyan-500",
       bgGradient: "from-blue-50 to-cyan-50",
       stats: [
-        { value: "99.8%", label: "On-time Delivery" },
-        { value: "24/7", label: "Tracking" },
-        { value: "2H", label: "Response Time" },
+        { value: "99.9%", label: "On-Time Rate" },
+        { value: "3 hrs", label: "Avg Response" },
+        { value: "1-Day", label: "Standard" },
       ],
     },
     {
       id: 2,
       icon: "📦",
-      title: "Standard Shipping",
+      title: "Everyday Parcels",
       description:
-        "Cost-effective standard shipping solutions for businesses of all sizes with complete visibility.",
+        "Your go-to for regular shipments — reliable, affordable, and surprisingly fast, because boring shipping is still good shipping.",
       features: [
-        "Economical pricing",
-        "Package insurance",
-        "Flexible pickup",
-        "Bulk discounts",
+        "Budget-friendly flat rates",
+        "Full parcel insurance",
+        "Free doorstep pickup",
+        "Volume discounts",
       ],
-      price: "Custom Quote",
-      deliveryTime: "3-5 days",
+      price: "From ₦2,200",
+      deliveryTime: "3–5 days",
       coverage: "200+ countries",
       gradient: "from-green-500 to-emerald-500",
       bgGradient: "from-green-50 to-emerald-50",
       stats: [
-        { value: "98.5%", label: "Success Rate" },
-        { value: "50K+", label: "Packages/Month" },
-        { value: "4.9★", label: "Rating" },
+        { value: "98.7%", label: "Delivered" },
+        { value: "80K+", label: "Monthly Pkgs" },
+        { value: "4.8★", label: "Customer Rating" },
       ],
     },
     {
       id: 3,
       icon: "🚢",
-      title: "Freight Services",
+      title: "Freight & Cargo",
       description:
-        "Heavy freight and logistics solutions for industrial and commercial shipments worldwide.",
+        "Big stuff? No problem. We handle heavy, oversized, and industrial cargo with the same care we give every single parcel.",
       features: [
-        "Heavy cargo",
-        "Customs clearance",
-        "Warehousing",
-        "Supply chain",
+        "Full & part-load options",
+        "Customs handled for you",
+        "Secure bonded warehousing",
+        "Port-to-port or door-to-door",
       ],
       price: "Custom Quote",
-      deliveryTime: "5-10 days",
-      coverage: "Global ports",
+      deliveryTime: "5–12 days",
+      coverage: "All major ports",
       gradient: "from-purple-500 to-indigo-500",
       bgGradient: "from-purple-50 to-indigo-50",
       stats: [
-        { value: "500T+", label: "Monthly Capacity" },
-        { value: "50+", label: "Global Ports" },
-        { value: "100%", label: "Customs Support" },
+        { value: "800T+", label: "Monthly Volume" },
+        { value: "60+", label: "Ports Served" },
+        { value: "48 hrs", label: "Avg Customs" },
       ],
     },
     {
       id: 4,
       icon: "🏭",
-      title: "Supply Chain",
+      title: "Supply Chain Care",
       description:
-        "End-to-end supply chain management with advanced analytics and optimization tools.",
+        "Think of us as your logistics partner, not just a carrier. We manage the entire flow so you can keep your eyes on growth.",
       features: [
-        "Inventory management",
-        "Demand forecasting",
-        "Route optimization",
-        "Analytics dashboard",
+        "Real-time stock visibility",
+        "AI demand prediction",
+        "Multi-carrier smart routing",
+        "Clear analytics dashboard",
       ],
-      price: "Custom Solution",
-      deliveryTime: "Ongoing",
-      coverage: "Global network",
+      price: "Tailored Plan",
+      deliveryTime: "Always-on",
+      coverage: "Global",
       gradient: "from-orange-500 to-red-500",
       bgGradient: "from-orange-50 to-red-50",
       stats: [
-        { value: "30%", label: "Cost Reduction" },
-        { value: "45%", label: "Efficiency Gain" },
-        { value: "100+", label: "Partners" },
+        { value: "35%", label: "Lower Costs" },
+        { value: "52%", label: "Faster Ops" },
+        { value: "200+", label: "Active Partners" },
       ],
     },
     {
       id: 5,
       icon: "❄️",
-      title: "Cold Chain",
+      title: "Cold & Sensitive Cargo",
       description:
-        "Temperature-controlled logistics for pharmaceuticals, food, and sensitive materials.",
+        "Medicines, fresh produce, frozen goods — if it needs to stay at the right temperature, we won't let the chain break. Ever.",
       features: [
-        "Temperature monitoring",
-        "Compliance certified",
-        "Special handling",
-        "Quality assurance",
+        "Continuous temperature logs",
+        "GDP & HACCP certified",
+        "Cryogenic shipping available",
+        "Full chain-of-custody records",
       ],
       price: "Custom Quote",
-      deliveryTime: "2-4 days",
-      coverage: "100+ countries",
+      deliveryTime: "2–4 days",
+      coverage: "110+ countries",
       gradient: "from-cyan-500 to-blue-500",
       bgGradient: "from-cyan-50 to-blue-50",
       stats: [
-        { value: "±2°C", label: "Temp Control" },
-        { value: "100%", label: "Compliance" },
-        { value: "0", label: "Incidents" },
+        { value: "±0.5°C", label: "Precision" },
+        { value: "100%", label: "Compliant" },
+        { value: "Zero", label: "Temp Breaches" },
       ],
     },
     {
       id: 6,
-      icon: "📊",
-      title: "Logistics Tech",
+      icon: "⚙️",
+      title: "Developer API",
       description:
-        "Cutting-edge technology solutions for modern logistics and supply chain optimization.",
+        "Ship from your own app in minutes. Our clean, well-documented API plugs into any stack — no logistics PhD required.",
       features: [
-        "API integration",
-        "Real-time analytics",
-        "Automated workflows",
-        "Custom dashboards",
+        "Simple REST & webhooks",
+        "Live tracking event streams",
+        "White-label tracking pages",
+        "No-code automations too",
       ],
-      price: "Subscription",
-      deliveryTime: "Instant setup",
-      coverage: "Cloud-based",
+      price: "Free tier + plans",
+      deliveryTime: "Deploy today",
+      coverage: "Cloud-powered",
       gradient: "from-gray-600 to-gray-800",
       bgGradient: "from-gray-50 to-gray-100",
       stats: [
-        { value: "99.9%", label: "Uptime" },
-        { value: "50+", label: "Integrations" },
-        { value: "24/7", label: "Support" },
+        { value: "99.99%", label: "Uptime" },
+        { value: "80+", label: "Integrations" },
+        { value: "<200ms", label: "Response Time" },
       ],
     },
   ];
@@ -161,19 +162,18 @@ export default function ServicesSection() {
         <div className="text-center mb-16">
           <div className="inline-flex items-center px-4 py-2 rounded-full bg-blue-100 text-blue-700 font-semibold text-sm mb-4">
             <span className="w-2 h-2 bg-blue-500 rounded-full mr-2 animate-pulse"></span>
-            OUR SERVICES
+            WHAT WE DO BEST
           </div>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Comprehensive{" "}
+            Simple Services,{" "}
             <span className="text-transparent bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text">
-              Logistics
+              Seriously Good
             </span>{" "}
-            Solutions
+            Results
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            End-to-end logistics services designed to streamline your supply
-            chain, reduce costs, and deliver exceptional reliability across
-            global markets.
+            Pick what you need and leave the rest to us. From a single parcel to a
+            full shipping programme, we make logistics feel easy.
           </p>
         </div>
 
@@ -301,18 +301,18 @@ export default function ServicesSection() {
 
           <div className="relative z-10">
             <h3 className="text-3xl md:text-4xl font-bold mb-4">
-              Ready to Transform Your Logistics?
+              Shipping Shouldn&apos;t Be Stressful
             </h3>
             <p className="text-blue-100 text-xl mb-8 max-w-2xl mx-auto">
-              Join thousands of businesses that trust us with their supply
-              chain. Get a customized quote today.
+              Over 12,000 businesses trust FedyTransist to move their goods every
+              day — and they keep coming back because it just works.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <button className="bg-white text-blue-600 hover:bg-gray-100 font-bold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg">
-                Get Free Consultation
+                Talk to Us for Free
               </button>
               <button className="border-2 border-white text-white hover:bg-white hover:text-blue-600 font-bold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105">
-                Contact Sales
+                See Our Pricing
               </button>
             </div>
 
@@ -324,11 +324,11 @@ export default function ServicesSection() {
               </div>
               <div className="flex items-center space-x-2">
                 <AwardIcon className="w-5 h-5 text-yellow-400" />
-                <span className="text-blue-100">Award Winning Service</span>
+                <span className="text-blue-100">5-Star Rated Service</span>
               </div>
               <div className="flex items-center space-x-2">
                 <GlobeIcon className="w-5 h-5 text-cyan-400" />
-                <span className="text-blue-100">Global Network</span>
+                <span className="text-blue-100">Carbon Offset Partner</span>
               </div>
             </div>
           </div>
@@ -338,7 +338,8 @@ export default function ServicesSection() {
   );
 }
 
-// Additional Icon Components
+// ── Icon Components ──────────────────────────────────────────────────────────
+
 function ShieldCheckIcon({ className }) {
   return (
     <svg className={className} fill="currentColor" viewBox="0 0 24 24">
@@ -346,6 +347,7 @@ function ShieldCheckIcon({ className }) {
     </svg>
   );
 }
+ShieldCheckIcon.propTypes = { className: PropTypes.string };
 
 function AwardIcon({ className }) {
   return (
@@ -354,6 +356,7 @@ function AwardIcon({ className }) {
     </svg>
   );
 }
+AwardIcon.propTypes = { className: PropTypes.string };
 
 function GlobeIcon({ className }) {
   return (
@@ -362,3 +365,4 @@ function GlobeIcon({ className }) {
     </svg>
   );
 }
+GlobeIcon.propTypes = { className: PropTypes.string };

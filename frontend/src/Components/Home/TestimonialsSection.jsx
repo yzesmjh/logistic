@@ -1,4 +1,5 @@
 import { useState } from "react";
+import PropTypes from "prop-types";
 
 export default function TestimonialsSection() {
   const [activeFilter, setActiveFilter] = useState("all");
@@ -6,91 +7,90 @@ export default function TestimonialsSection() {
   const testimonials = [
     {
       id: 1,
-      name: "Sarah Chen",
-      position: "Logistics Manager",
-      company: "TechGlobal Inc.",
+      name: "Ngozi Adeyemi",
+      position: "Head of Operations",
+      company: "Konga Technologies",
       image: "/api/placeholder/80/80",
       rating: 5,
-      text: "FedyTransist transformed our supply chain. Their real-time tracking and reliable delivery have reduced our shipping costs by 30% and improved customer satisfaction significantly.",
-      service: "Supply Chain",
-      industry: "Technology",
-      location: "San Francisco, USA",
-      stats: { delivery: "99.9%", time: "2.3 days", savings: "30%" },
+      text: "Late deliveries were tanking our customer ratings. Six months with FedyTransist later, our on-time rate is sitting at 99.7% and customers are actually leaving five-star reviews. Genuinely wild.",
+      service: "Express Delivery",
+      industry: "E-commerce",
+      location: "Lagos, Nigeria",
+      stats: { delivery: "99.7%", speed: "1.1 days", growth: "+40%" },
     },
     {
       id: 2,
-      name: "Marcus Rodriguez",
-      position: "Operations Director",
-      company: "AutoParts Pro",
+      name: "Dr. Emeka Okafor",
+      position: "Chief Operating Officer",
+      company: "VitaPath Pharma",
       image: "/api/placeholder/80/80",
       rating: 5,
-      text: "The cold chain logistics for our automotive parts have been flawless. Temperature monitoring and on-time delivery across continents is impressive.",
+      text: "Our vaccines travel from the UK to 14 African markets and we haven't had a single temperature breach since we switched. My QA team finally sleeps through the night.",
       service: "Cold Chain",
-      industry: "Automotive",
-      location: "Berlin, Germany",
-      stats: { delivery: "100%", time: "3.1 days", compliance: "100%" },
+      industry: "Healthcare",
+      location: "Abuja, Nigeria",
+      stats: { delivery: "100%", temp: "±0.5°C", compliance: "100%" },
     },
     {
       id: 3,
-      name: "Aisha Khan",
-      position: "CEO",
-      company: "MediCare Supplies",
+      name: "Priya Sharma",
+      position: "VP Logistics",
+      company: "Tata Consumer",
       image: "/api/placeholder/80/80",
       rating: 5,
-      text: "As a pharmaceutical company, compliance and reliability are everything. FedyTransist's cold chain solution has been instrumental in our global expansion.",
-      service: "Cold Chain",
-      industry: "Healthcare",
-      location: "Dubai, UAE",
-      stats: { delivery: "99.8%", temp: "±1°C", compliance: "100%" },
+      text: "We cut our cost-per-shipment by 28% in the first year. Their demand forecasting is genuinely clever — stock-out events dropped 60%. I honestly wish we'd switched sooner.",
+      service: "Supply Chain",
+      industry: "FMCG",
+      location: "Mumbai, India",
+      stats: { delivery: "99.8%", savings: "28%", efficiency: "+60%" },
     },
     {
       id: 4,
-      name: "James Wilson",
-      position: "Supply Chain VP",
-      company: "Retail Giant Corp",
+      name: "Carlos Mendes",
+      position: "Import Director",
+      company: "Construfix Brasil",
       image: "/api/placeholder/80/80",
       rating: 4,
-      text: "Their freight services handle our peak season volumes effortlessly. The customs clearance support saved us countless hours and headaches.",
+      text: "Customs used to take two weeks. Now it takes 48 hours. That change alone saved us more in demurrage charges than our entire annual contract cost. The maths speaks for itself.",
       service: "Freight Services",
-      industry: "Retail",
-      location: "London, UK",
-      stats: { volume: "500T+", clearance: "24h", cost: "25% saved" },
+      industry: "Construction",
+      location: "São Paulo, Brazil",
+      stats: { volume: "900T+", clearance: "48 hrs", cost: "32% saved" },
     },
     {
       id: 5,
-      name: "Lisa Thompson",
-      position: "E-commerce Director",
-      company: "StyleHub Fashion",
+      name: "Fatima Al-Rashid",
+      position: "Founder & CEO",
+      company: "Saffron Luxe",
       image: "/api/placeholder/80/80",
       rating: 5,
-      text: "Express delivery that actually delivers on its promises. Our customers love the real-time tracking and consistent next-day delivery.",
+      text: "Our clients expect white-glove everything. FedyTransist delivers — literally. Tamper-evident packaging, photo proof, same-day options. They make us look exceptional without any extra effort from us.",
       service: "Express Delivery",
-      industry: "E-commerce",
-      location: "New York, USA",
-      stats: { delivery: "99.7%", speed: "1.2 days", growth: "40%" },
+      industry: "Luxury Retail",
+      location: "Dubai, UAE",
+      stats: { delivery: "100%", speed: "0.9 days", CSAT: "98%" },
     },
     {
       id: 6,
-      name: "David Park",
-      position: "CTO",
-      company: "LogiTech Solutions",
+      name: "Tom Bergmann",
+      position: "Platform Lead",
+      company: "ShipStack GmbH",
       image: "/api/placeholder/80/80",
       rating: 5,
-      text: "The API integration and analytics dashboard have revolutionized how we manage our logistics. The tech stack is impressive and reliable.",
+      text: "We re-built our entire shipping integration in under two weeks using their API. Docs are excellent, webhooks are rock solid, and — this is rare — their developer support team actually knows what they're talking about.",
       service: "Logistics Tech",
       industry: "SaaS",
-      location: "Seoul, South Korea",
-      stats: { uptime: "99.9%", efficiency: "45%", integration: "50+" },
+      location: "Berlin, Germany",
+      stats: { uptime: "99.99%", setup: "11 days", integrations: "80+" },
     },
   ];
 
   const filters = [
-    { key: "all", label: "All Testimonials", count: testimonials.length },
+    { key: "all", label: "All Stories", count: testimonials.length },
     {
       key: "Express Delivery",
       label: "Express",
-      count: testimonials.filter((t) => t.service === "Express Delivery")
-        .length,
+      count: testimonials.filter((t) => t.service === "Express Delivery").length,
     },
     {
       key: "Cold Chain",
@@ -100,8 +100,7 @@ export default function TestimonialsSection() {
     {
       key: "Freight Services",
       label: "Freight",
-      count: testimonials.filter((t) => t.service === "Freight Services")
-        .length,
+      count: testimonials.filter((t) => t.service === "Freight Services").length,
     },
     {
       key: "Supply Chain",
@@ -110,7 +109,7 @@ export default function TestimonialsSection() {
     },
     {
       key: "Logistics Tech",
-      label: "Technology",
+      label: "Tech & API",
       count: testimonials.filter((t) => t.service === "Logistics Tech").length,
     },
   ];
@@ -130,11 +129,11 @@ export default function TestimonialsSection() {
   };
 
   const industryIcons = {
-    Technology: "💻",
-    Automotive: "🚗",
-    Healthcare: "🏥",
-    Retail: "🛍️",
     "E-commerce": "🛒",
+    Healthcare: "🏥",
+    FMCG: "🛍️",
+    Construction: "🏗️",
+    "Luxury Retail": "💎",
     SaaS: "☁️",
   };
 
@@ -165,18 +164,17 @@ export default function TestimonialsSection() {
         <div className="text-center mb-16">
           <div className="inline-flex items-center px-4 py-2 rounded-full bg-white/10 text-white font-semibold text-sm mb-4 backdrop-blur-sm">
             <span className="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></span>
-            CUSTOMER TESTIMONIALS
+            PEOPLE LOVE US (WE PROMISE WE&apos;RE NOT MAKING THIS UP)
           </div>
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Trusted by{" "}
+            Real Stories from{" "}
             <span className="text-transparent bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text">
-              Global
-            </span>{" "}
-            Leaders
+              Real Customers
+            </span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Discover why thousands of businesses worldwide choose FedyTransist for
-            their logistics needs.
+            From solo sellers to major corporations — hear what businesses just like
+            yours are saying about life with FedyTransist.
           </p>
         </div>
 
@@ -280,12 +278,8 @@ export default function TestimonialsSection() {
                 <div className="flex space-x-3">
                   {Object.entries(testimonial.stats).map(([key, value]) => (
                     <div key={key} className="text-right">
-                      <div className="text-white font-bold text-sm">
-                        {value}
-                      </div>
-                      <div className="text-gray-400 text-xs capitalize">
-                        {key}
-                      </div>
+                      <div className="text-white font-bold text-sm">{value}</div>
+                      <div className="text-gray-400 text-xs capitalize">{key}</div>
                     </div>
                   ))}
                 </div>
@@ -298,28 +292,20 @@ export default function TestimonialsSection() {
         <div className="bg-white/5 backdrop-blur-lg rounded-3xl p-8 border border-white/10">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
             <div>
-              <div className="text-3xl lg:text-4xl font-bold text-white mb-2">
-                10K+
-              </div>
-              <div className="text-gray-400">Happy Customers</div>
+              <div className="text-3xl lg:text-4xl font-bold text-white mb-2">15K+</div>
+              <div className="text-gray-400">Happy Businesses</div>
             </div>
             <div>
-              <div className="text-3xl lg:text-4xl font-bold text-white mb-2">
-                150+
-              </div>
-              <div className="text-gray-400">Countries Served</div>
+              <div className="text-3xl lg:text-4xl font-bold text-white mb-2">180+</div>
+              <div className="text-gray-400">Countries Reached</div>
             </div>
             <div>
-              <div className="text-3xl lg:text-4xl font-bold text-white mb-2">
-                99.8%
-              </div>
-              <div className="text-gray-400">On-Time Delivery</div>
+              <div className="text-3xl lg:text-4xl font-bold text-white mb-2">99.9%</div>
+              <div className="text-gray-400">On-Time Rate</div>
             </div>
             <div>
-              <div className="text-3xl lg:text-4xl font-bold text-white mb-2">
-                24/7
-              </div>
-              <div className="text-gray-400">Support Available</div>
+              <div className="text-3xl lg:text-4xl font-bold text-white mb-2">24/7</div>
+              <div className="text-gray-400">We&apos;re Here for You</div>
             </div>
           </div>
         </div>
@@ -327,18 +313,18 @@ export default function TestimonialsSection() {
         {/* CTA Section */}
         <div className="text-center mt-16">
           <h3 className="text-3xl font-bold text-white mb-4">
-            Ready to Join Our Happy Customers?
+            Ready to Become Our Next Success Story?
           </h3>
           <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-            Experience the FedyTransist difference and transform your logistics
-            operations today.
+            Businesses of every size ship with FedyTransist because it&apos;s just
+            easier — and it actually works.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg">
               Start Shipping Today
             </button>
             <button className="border-2 border-white text-white hover:bg-white hover:text-gray-900 font-bold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105">
-              View Case Studies
+              Read More Stories
             </button>
           </div>
         </div>
@@ -347,7 +333,8 @@ export default function TestimonialsSection() {
   );
 }
 
-// Icon Components
+// ── Icon Components ──────────────────────────────────────────────────────────
+
 function StarIcon({ className }) {
   return (
     <svg className={className} fill="currentColor" viewBox="0 0 20 20">
@@ -355,6 +342,7 @@ function StarIcon({ className }) {
     </svg>
   );
 }
+StarIcon.propTypes = { className: PropTypes.string };
 
 function QuoteIcon({ className }) {
   return (
@@ -363,15 +351,11 @@ function QuoteIcon({ className }) {
     </svg>
   );
 }
+QuoteIcon.propTypes = { className: PropTypes.string };
 
 function LocationIcon({ className }) {
   return (
-    <svg
-      className={className}
-      fill="none"
-      stroke="currentColor"
-      viewBox="0 0 24 24"
-    >
+    <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -387,3 +371,4 @@ function LocationIcon({ className }) {
     </svg>
   );
 }
+LocationIcon.propTypes = { className: PropTypes.string };

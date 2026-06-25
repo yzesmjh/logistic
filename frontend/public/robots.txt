@@ -1,2 +1,33 @@
+# Block all web crawlers from indexing any page of this site.
+# https://www.robotstxt.org/robotstxt.html
+
 User-agent: *
-Disallow: /no-index-page
+Disallow: /
+
+# Explicitly block the most common crawlers as a belt-and-suspenders measure
+User-agent: Googlebot
+Disallow: /
+
+User-agent: Googlebot-Image
+Disallow: /
+
+User-agent: Bingbot
+Disallow: /
+
+User-agent: Slurp
+Disallow: /
+
+User-agent: DuckDuckBot
+Disallow: /
+
+User-agent: Baiduspider
+Disallow: /
+
+User-agent: YandexBot
+Disallow: /
+
+User-agent: facebot
+Disallow: /
+
+User-agent: ia_archiver
+Disallow: /

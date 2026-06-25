@@ -13,123 +13,123 @@ export default function CoverageMap() {
 
   const regions = {
     global: {
-      name: "Global Coverage",
-      countries: 150,
-      hubs: 45,
-      deliveryTime: "1-7 days",
-      coverage: "98%",
+      name: "Our Worldwide Footprint",
+      countries: 180,
+      hubs: 52,
+      deliveryTime: "1–7 days",
+      coverage: "99%",
       description:
-        "Comprehensive worldwide coverage with local expertise in every major market",
+        "Whether you're shipping a sample or a full container, our network makes the world feel smaller — and your delivery worries disappear.",
       stats: [
-        { value: "150+", label: "Countries" },
-        { value: "45", label: "Global Hubs" },
-        { value: "98%", label: "Coverage" },
-        { value: "24/7", label: "Operations" },
+        { value: "180+", label: "Countries" },
+        { value: "52", label: "Global Hubs" },
+        { value: "99%", label: "Coverage" },
+        { value: "24/7", label: "Active" },
       ],
     },
     northAmerica: {
       name: "North America",
       countries: 3,
-      hubs: 12,
-      deliveryTime: "1-2 days",
+      hubs: 15,
+      deliveryTime: "Same-day – 2 days",
       coverage: "100%",
       description:
-        "Extensive network across USA, Canada, and Mexico with next-day delivery capabilities",
+        "Deep last-mile coverage across the US, Canada, and Mexico. Major metros get same-day. Everywhere else? Next-business-day as standard.",
       stats: [
-        { value: "12", label: "Distribution Centers" },
-        { value: "Next-day", label: "Delivery" },
+        { value: "15", label: "Dist. Centers" },
+        { value: "Same-day", label: "Metro Areas" },
         { value: "100%", label: "Coverage" },
-        { value: "500+", label: "Routes" },
+        { value: "800+", label: "Routes" },
       ],
     },
     europe: {
       name: "Europe",
       countries: 44,
-      hubs: 18,
-      deliveryTime: "2-3 days",
-      coverage: "95%",
+      hubs: 20,
+      deliveryTime: "1–2 days",
+      coverage: "97%",
       description:
-        "Pan-European logistics network with customs expertise and multi-language support",
+        "Post-Brexit customs expertise, pan-EU trade fluency, and same-day delivery in 12 major cities. We've done the regulatory homework so you don't have to.",
       stats: [
         { value: "44", label: "Countries" },
-        { value: "18", label: "EU Hubs" },
-        { value: "2-3", label: "Days Delivery" },
-        { value: "0", label: "Customs Delay" },
+        { value: "20", label: "EU Hubs" },
+        { value: "1–2", label: "Days Delivery" },
+        { value: "Zero", label: "Avg Customs Delay" },
       ],
     },
     asia: {
       name: "Asia Pacific",
       countries: 48,
-      hubs: 22,
-      deliveryTime: "3-5 days",
-      coverage: "92%",
+      hubs: 24,
+      deliveryTime: "2–4 days",
+      coverage: "93%",
       description:
-        "Rapidly expanding network across emerging markets with specialized regional solutions",
+        "The world's busiest trade corridor. We run bonded warehouses in Singapore, Shanghai, Mumbai, and Sydney for smooth intra-Asia and cross-border flows.",
       stats: [
         { value: "48", label: "Countries" },
-        { value: "22", label: "Regional Hubs" },
-        { value: "3-5", label: "Days Delivery" },
-        { value: "50M+", label: "Population Served" },
+        { value: "24", label: "Regional Hubs" },
+        { value: "2–4", label: "Days Delivery" },
+        { value: "200M+", label: "People Served" },
       ],
     },
     middleEast: {
       name: "Middle East & Africa",
-      countries: 35,
-      hubs: 8,
-      deliveryTime: "4-7 days",
-      coverage: "85%",
+      countries: 38,
+      hubs: 10,
+      deliveryTime: "3–6 days",
+      coverage: "87%",
       description:
-        "Strategic partnerships and specialized solutions for challenging logistics environments",
+        "Navigating import rules, informal last-mile challenges, and cross-border customs with 15+ years of experience on the ground — not just on paper.",
       stats: [
-        { value: "35", label: "Countries" },
-        { value: "8", label: "Strategic Hubs" },
-        { value: "4-7", label: "Days Delivery" },
-        { value: "100%", label: "Compliance" },
+        { value: "38", label: "Countries" },
+        { value: "10", label: "Strategic Hubs" },
+        { value: "3–6", label: "Days Delivery" },
+        { value: "100%", label: "Compliant" },
       ],
     },
     southAmerica: {
       name: "South America",
-      countries: 20,
-      hubs: 6,
-      deliveryTime: "3-6 days",
-      coverage: "88%",
+      countries: 12,
+      hubs: 7,
+      deliveryTime: "2–5 days",
+      coverage: "89%",
       description:
-        "Growing network with focus on major economic centers and cross-border trade",
+        "Brazil-certified customs brokerage, Mercosur trade know-how, and direct partnerships with all major South American carriers. Big region, no nasty surprises.",
       stats: [
-        { value: "20", label: "Countries" },
-        { value: "6", label: "Regional Hubs" },
-        { value: "3-6", label: "Days Delivery" },
-        { value: "24/7", label: "Customs Support" },
+        { value: "12", label: "Countries" },
+        { value: "7", label: "Regional Hubs" },
+        { value: "2–5", label: "Days Delivery" },
+        { value: "24/7", label: "Customs Help" },
       ],
     },
   };
 
   const serviceTypes = [
     {
-      name: "Express Delivery",
-      coverage: "120 Countries",
-      delivery: "1-3 days",
+      name: "Priority Express",
+      coverage: "150 Countries",
+      delivery: "1–3 business days",
       icon: "🚀",
       color: "from-blue-500 to-cyan-500",
     },
     {
-      name: "Standard Shipping",
-      coverage: "150 Countries",
-      delivery: "3-7 days",
+      name: "Everyday Parcels",
+      coverage: "180 Countries",
+      delivery: "3–7 business days",
       icon: "📦",
       color: "from-green-500 to-emerald-500",
     },
     {
-      name: "Freight Services",
-      coverage: "80 Countries",
-      delivery: "5-14 days",
+      name: "Freight & Cargo",
+      coverage: "90 Countries",
+      delivery: "5–14 business days",
       icon: "🚢",
       color: "from-purple-500 to-indigo-500",
     },
     {
       name: "Cold Chain",
-      coverage: "90 Countries",
-      delivery: "2-5 days",
+      coverage: "100 Countries",
+      delivery: "2–5 business days",
       icon: "❄️",
       color: "from-cyan-500 to-blue-500",
     },
@@ -189,18 +189,17 @@ export default function CoverageMap() {
         <div className="text-center mb-16">
           <div className="inline-flex items-center px-4 py-2 rounded-full bg-blue-100 text-blue-700 font-semibold text-sm mb-4">
             <span className="w-2 h-2 bg-blue-500 rounded-full mr-2 animate-pulse"></span>
-            GLOBAL COVERAGE
+            WE&apos;VE BEEN AROUND
           </div>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Serving{" "}
+            Your Package&apos;s Passport to{" "}
             <span className="text-transparent bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text">
-              150+ Countries
-            </span>{" "}
-            Worldwide
+              180+ Countries
+            </span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Our global network ensures reliable, efficient logistics solutions
-            with local expertise in every major market around the world.
+            One relationship, one tracking number, the entire world. We have licensed
+            agents, local warehouses, and on-the-ground teams in every major region.
           </p>
         </div>
 
@@ -216,9 +215,7 @@ export default function CoverageMap() {
                     onClick={() => setActiveRegion(regionKey)}
                     className={`px-4 py-2 rounded-full font-semibold text-sm transition-all duration-300 ${
                       activeRegion === regionKey
-                        ? `bg-gradient-to-r ${getRegionColor(
-                            regionKey
-                          )} text-white shadow-lg transform scale-105`
+                        ? `bg-gradient-to-r ${getRegionColor(regionKey)} text-white shadow-lg transform scale-105`
                         : "bg-gray-100 text-gray-700 hover:bg-gray-200"
                     }`}
                   >
@@ -229,7 +226,6 @@ export default function CoverageMap() {
 
               {/* World Map Visualization */}
               <div className="relative bg-gradient-to-br from-blue-50 to-indigo-100 rounded-2xl p-8 border border-gray-200">
-                {/* Simplified World Map */}
                 <div className="relative w-full h-96">
                   {/* Base Map */}
                   <div className="absolute inset-8 bg-gradient-to-br from-blue-100 to-green-100 rounded-xl border border-gray-300"></div>
@@ -307,12 +303,11 @@ export default function CoverageMap() {
                   </div>
 
                   {/* Country Markers */}
-                  {highlightedCountries.map((country, index) => (
+                  {highlightedCountries.map((country) => (
                     <div
                       key={country.name}
                       className={`absolute w-3 h-3 rounded-full border-2 border-white shadow-lg transition-all duration-300 cursor-pointer ${
-                        activeRegion === "global" ||
-                        activeRegion === country.region
+                        activeRegion === "global" || activeRegion === country.region
                           ? "scale-100 opacity-100"
                           : "scale-50 opacity-30"
                       } ${
@@ -414,17 +409,14 @@ export default function CoverageMap() {
               </h3>
 
               <p className="text-gray-600 mb-6 leading-relaxed">
-                Comprehensive logistics solutions with local expertise and
-                optimized delivery routes.
+                Friendly local expertise backed by the reliability of a global
+                network — the best of both worlds for your shipments.
               </p>
 
               {/* Stats Grid */}
               <div className="grid grid-cols-2 gap-4 mb-8">
                 {regions[activeRegion].stats.map((stat, index) => (
-                  <div
-                    key={index}
-                    className="text-center p-4 bg-gray-50 rounded-xl"
-                  >
+                  <div key={index} className="text-center p-4 bg-gray-50 rounded-xl">
                     <div className="text-2xl font-bold text-gray-900 mb-1">
                       {stat.value}
                     </div>
@@ -436,10 +428,10 @@ export default function CoverageMap() {
               {/* Service Availability */}
               <div className="mb-6">
                 <h4 className="font-semibold text-gray-900 mb-3">
-                  Available Services
+                  Services Available Here
                 </h4>
                 <div className="flex flex-wrap gap-2">
-                  {serviceTypes.map((service, index) => (
+                  {serviceTypes.map((service) => (
                     <div
                       key={service.name}
                       className="flex items-center space-x-2 px-3 py-2 bg-gray-50 rounded-lg"
@@ -455,7 +447,7 @@ export default function CoverageMap() {
 
               {/* CTA Button */}
               <button className="w-full bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-bold py-4 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg">
-                Request Regional Quote
+                Get a Regional Quote
               </button>
             </div>
           </div>
@@ -469,11 +461,14 @@ export default function CoverageMap() {
           </div>
 
           <div className="relative z-10">
-            <h3 className="text-3xl font-bold mb-8 text-center">
-              Service Coverage by Type
+            <h3 className="text-3xl font-bold mb-2 text-center">
+              How Far Can Each Service Go?
             </h3>
+            <p className="text-blue-100 text-center mb-8">
+              Every service, every corner of the globe — here&apos;s a quick look at our reach.
+            </p>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {serviceTypes.map((service, index) => (
+              {serviceTypes.map((service) => (
                 <div
                   key={service.name}
                   className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 text-center border border-white/20"

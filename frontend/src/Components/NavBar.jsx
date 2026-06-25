@@ -14,7 +14,7 @@ export default function NavBar() {
           {/* Brand Logo */}
           <div className="flex-shrink-0">
             <span className="text-2xl font-black text-white tracking-tight uppercase">
-              fhed<span className="text-orange-400">x</span>
+              Fedy<span className="text-orange-400">Transit</span>
             </span>
           </div>
 

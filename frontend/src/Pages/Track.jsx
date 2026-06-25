@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { ThreeCircles } from "react-loader-spinner";
 import axios from "axios";
 import QRCodeGenerator from "../Components/QRCodeGenerator";
@@ -8,6 +8,14 @@ import Footer from "../Components/Home/Footer";
 
 const Track = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
+
+  const goToTrackForm = () => {
+    navigate("/");
+    setTimeout(() => {
+      document.getElementById("track-form")?.scrollIntoView({ behavior: "smooth" });
+    }, 200);
+  };
   const BaseUrl = import.meta.env.VITE_BASEURL;
   const [packageData, setPackageData] = useState(null);
   const [packageComment, setPackageComment] = useState(null);
@@ -134,7 +142,7 @@ const Track = () => {
             No package found with tracking ID: <strong>{id}</strong>
           </p>
           <button
-            onClick={() => window.history.back()}
+            onClick={goToTrackForm}
             className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-6 py-3 rounded-xl hover:shadow-lg transition-all duration-300"
           >
             Try Another ID

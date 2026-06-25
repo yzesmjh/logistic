@@ -2,56 +2,56 @@ import { useState, useEffect } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { useNavigate } from "react-router-dom";
 import * as Yup from "yup";
+import PropTypes from "prop-types";
+
+// Defined outside component so the array reference is stable (avoids useEffect dep warning)
+const SLIDES = [
+  {
+    background: "bg-gradient-to-r from-blue-600 to-purple-700",
+    title: "We Ship Where Others Won't",
+    subtitle:
+      "From Lagos to London, Abuja to Amsterdam — one tracking number, zero borders, total peace of mind.",
+  },
+  {
+    background: "bg-gradient-to-r from-green-600 to-blue-700",
+    title: "Need It There Yesterday?",
+    subtitle:
+      "Same-day and next-day delivery options for when speed isn't just nice — it's absolutely necessary.",
+  },
+  {
+    background: "bg-gradient-to-r from-orange-500 to-red-600",
+    title: "Shipping, but Smarter",
+    subtitle:
+      "AI routing, real-time alerts, and proactive exception handling — logistics that works as hard as you do.",
+  },
+];
+
+const validationSchema = Yup.object({
+  trackingId: Yup.string()
+    .min(7, "Tracking ID must be at least 7 characters long")
+    .required("Tracking ID is required"),
+});
 
 export default function HeroSection() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const navigate = useNavigate();
-  const slides = [
-    {
-      background: "bg-gradient-to-r from-blue-600 to-purple-700",
-      title: "Global Logistics Solutions",
-      subtitle:
-        "Connecting markets across continents with reliable shipping and supply chain management",
-      image: "/api/placeholder/800/600",
-    },
-    {
-      background: "bg-gradient-to-r from-green-600 to-blue-700",
-      title: "Fast & Secure Delivery",
-      subtitle:
-        "Your goods delivered safely and on time, anywhere in the world",
-      image: "/api/placeholder/800/600",
-    },
-    {
-      background: "bg-gradient-to-r from-orange-500 to-red-600",
-      title: "Smart Supply Chain",
-      subtitle:
-        "Advanced tracking and analytics for complete visibility and control",
-      image: "/api/placeholder/800/600",
-    },
-  ];
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slides.length);
+      setCurrentSlide((prev) => (prev + 1) % SLIDES.length);
     }, 5000);
     return () => clearInterval(interval);
-  }, []);
-
-  const validationSchema = Yup.object({
-    trackingId: Yup.string()
-      .min(7, "Tracking ID must be at least 7 characters long")
-      .required("Tracking ID is required"),
-  });
+  }, []); // SLIDES.length is stable (module-level constant)
 
   const handleSubmit = (values) => {
     navigate(`/track/${values.trackingId}`);
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden py-3">
+    <section id="track-form" className="relative min-h-screen flex items-center justify-center overflow-hidden py-3">
       {/* Animated Background Slides */}
       <div className="absolute inset-0">
-        {slides.map((slide, index) => (
+        {SLIDES.map((slide, index) => (
           <div
             key={index}
             className={`absolute inset-0 transition-opacity duration-1000 ${
@@ -94,48 +94,49 @@ export default function HeroSection() {
             <div className="inline-flex items-center px-4 py-2 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 mb-6">
               <span className="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></span>
               <span className="text-white text-sm font-semibold">
-                Worldwide Shipping Available
+                Shipping to 180+ Countries 👋
               </span>
             </div>
 
             {/* Main Heading */}
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-              <span className="block">Delivering</span>
+              <span className="block">Move Anything.</span>
               <span className="block bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent">
-                Excellence
+                Anywhere.
               </span>
-              <span className="block">Worldwide</span>
+              <span className="block">We&apos;ve Got You.</span>
             </h1>
 
             {/* Subtitle */}
             <p className="text-xl md:text-2xl text-white/90 mb-8 leading-relaxed">
-              Your trusted partner in global logistics. Fast, reliable, and
-              secure shipping solutions tailored to your business needs.
+              Whether it&apos;s a birthday gift or a bulk order, FedyTransist
+              handles your shipment like it&apos;s our own — carefully, quickly,
+              and with a smile.
             </p>
 
             {/* Stats */}
             <div className="grid grid-cols-3 gap-6 mb-8">
               <div className="text-center">
-                <div className="text-3xl font-bold text-white">150+</div>
-                <div className="text-white/70 text-sm">Countries Served</div>
+                <div className="text-3xl font-bold text-white">180+</div>
+                <div className="text-white/70 text-sm">Countries Reached</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-white">99.8%</div>
-                <div className="text-white/70 text-sm">On-Time Delivery</div>
+                <div className="text-3xl font-bold text-white">4.2M+</div>
+                <div className="text-white/70 text-sm">Happy Deliveries</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-white">24/7</div>
-                <div className="text-white/70 text-sm">Customer Support</div>
+                <div className="text-3xl font-bold text-white">99.9%</div>
+                <div className="text-white/70 text-sm">On-Time Rate</div>
               </div>
             </div>
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
               <button className="bg-orange-500 hover:bg-orange-600 text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
-                Get Free Quote
+                Get a Free Quote
               </button>
               <button className="bg-white/20 hover:bg-white/30 text-white font-bold py-4 px-8 rounded-xl backdrop-blur-sm border border-white/30 transition-all duration-300 transform hover:scale-105">
-                Track Shipment
+                Track My Package
               </button>
             </div>
 
@@ -143,72 +144,67 @@ export default function HeroSection() {
             <div className="flex items-center justify-start space-x-6">
               <div className="flex items-center space-x-2">
                 <ShieldCheckIcon className="w-5 h-5 text-green-400" />
-                <span className="text-white/80 text-sm">Secure Handling</span>
+                <span className="text-white/80 text-sm">Fully Insured</span>
               </div>
               <div className="flex items-center space-x-2">
                 <ClockIcon className="w-5 h-5 text-blue-400" />
-                <span className="text-white/80 text-sm">
-                  Real-time Tracking
-                </span>
+                <span className="text-white/80 text-sm">GPS Tracked</span>
               </div>
               <div className="flex items-center space-x-2">
                 <GlobeIcon className="w-5 h-5 text-purple-400" />
-                <span className="text-white/80 text-sm">Global Network</span>
+                <span className="text-white/80 text-sm">Eco-Friendly</span>
               </div>
             </div>
           </div>
 
-          {/* Right Content - Hero Image/Form */}
+          {/* Right Content - Tracking Form */}
           <div className="relative">
             <div className="bg-white/10 backdrop-blur-lg rounded-3xl p-8 border border-white/20 shadow-2xl">
               <div className="text-center mb-6">
                 <h3 className="text-2xl font-bold text-white mb-2">
-                  Track Your Shipment
+                  Find Your Package 📦
                 </h3>
                 <p className="text-white/70">
-                  Enter your tracking number to get real-time updates
+                  Paste your tracking ID and we&apos;ll show you exactly where it is
                 </p>
               </div>
 
               <div className="space-y-4">
-                <div>
-                  <Formik
-                    initialValues={{ trackingId: "" }}
-                    validationSchema={validationSchema}
-                    onSubmit={handleSubmit}
-                  >
-                    {({ isSubmitting }) => (
-                      <Form>
-                        <label
-                          htmlFor="tracking-id"
-                          className="block uppercase text-xs text-white font-bold mb-2"
-                        >
-                          Tracking ID
-                        </label>
-                        <Field
-                          id="tracking-id"
-                          name="trackingId"
-                          type="text"
-                          placeholder="Enter tracking number"
-                          className="w-full px-4 py-4 rounded-xl mb-5 bg-white/5 border border-white/20 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
-                        />
-                        <ErrorMessage
-                          name="trackingId"
-                          component="div"
-                          className="text-orange-200 text-xs mb-3"
-                        />
-
-                        <button
-                          type="submit"
-                          disabled={isSubmitting}
-                          className="w-full py-3 text-white font-bold rounded-lg bg-orange-500 hover:bg-orange-600 transition duration-150 disabled:opacity-60"
-                        >
-                          {isSubmitting ? "Tracking..." : "Track Now"}
-                        </button>
-                      </Form>
-                    )}
-                  </Formik>
-                </div>
+                <Formik
+                  initialValues={{ trackingId: "" }}
+                  validationSchema={validationSchema}
+                  onSubmit={handleSubmit}
+                >
+                  {({ isSubmitting }) => (
+                    <Form>
+                      <label
+                        htmlFor="tracking-id"
+                        className="block uppercase text-xs text-white font-bold mb-2"
+                      >
+                        Tracking ID
+                      </label>
+                      <Field
+                        id="tracking-id"
+                        name="trackingId"
+                        type="text"
+                        placeholder="e.g. FDX-7489234567"
+                        className="w-full px-4 py-4 rounded-xl mb-5 bg-white/5 border border-white/20 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                      />
+                      <ErrorMessage
+                        name="trackingId"
+                        component="div"
+                        className="text-orange-200 text-xs mb-3"
+                      />
+                      <button
+                        type="submit"
+                        disabled={isSubmitting}
+                        className="w-full py-3 text-white font-bold rounded-lg bg-orange-500 hover:bg-orange-600 transition duration-150 disabled:opacity-60"
+                      >
+                        {isSubmitting ? "Looking it up…" : "Track Now"}
+                      </button>
+                    </Form>
+                  )}
+                </Formik>
               </div>
 
               {/* Feature List */}
@@ -217,27 +213,25 @@ export default function HeroSection() {
                   <div className="w-8 h-8 bg-green-500/20 rounded-full flex items-center justify-center">
                     <CheckIcon className="w-4 h-4 text-green-400" />
                   </div>
-                  <span className="text-white/80 text-sm">Live Tracking</span>
+                  <span className="text-white/80 text-sm">GPS Live Updates</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <div className="w-8 h-8 bg-blue-500/20 rounded-full flex items-center justify-center">
                     <CheckIcon className="w-4 h-4 text-blue-400" />
                   </div>
-                  <span className="text-white/80 text-sm">Instant Updates</span>
+                  <span className="text-white/80 text-sm">SMS &amp; Email Alerts</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <div className="w-8 h-8 bg-purple-500/20 rounded-full flex items-center justify-center">
                     <CheckIcon className="w-4 h-4 text-purple-400" />
                   </div>
-                  <span className="text-white/80 text-sm">
-                    Route Optimization
-                  </span>
+                  <span className="text-white/80 text-sm">Smart Routing</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <div className="w-8 h-8 bg-orange-500/20 rounded-full flex items-center justify-center">
                     <CheckIcon className="w-4 h-4 text-orange-400" />
                   </div>
-                  <span className="text-white/80 text-sm">24/7 Support</span>
+                  <span className="text-white/80 text-sm">Round-the-Clock Care</span>
                 </div>
               </div>
             </div>
@@ -247,7 +241,7 @@ export default function HeroSection() {
 
       {/* Slide Indicators */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-3 z-10">
-        {slides.map((_, index) => (
+        {SLIDES.map((_, index) => (
           <button
             key={index}
             onClick={() => setCurrentSlide(index)}
@@ -268,7 +262,8 @@ export default function HeroSection() {
   );
 }
 
-// Icon Components
+// ── Icon Components ──────────────────────────────────────────────────────────
+
 function TruckIcon({ className }) {
   return (
     <svg className={className} fill="currentColor" viewBox="0 0 24 24">
@@ -276,6 +271,7 @@ function TruckIcon({ className }) {
     </svg>
   );
 }
+TruckIcon.propTypes = { className: PropTypes.string };
 
 function ShipIcon({ className }) {
   return (
@@ -284,6 +280,7 @@ function ShipIcon({ className }) {
     </svg>
   );
 }
+ShipIcon.propTypes = { className: PropTypes.string };
 
 function PlaneIcon({ className }) {
   return (
@@ -292,6 +289,7 @@ function PlaneIcon({ className }) {
     </svg>
   );
 }
+PlaneIcon.propTypes = { className: PropTypes.string };
 
 function WarehouseIcon({ className }) {
   return (
@@ -300,6 +298,7 @@ function WarehouseIcon({ className }) {
     </svg>
   );
 }
+WarehouseIcon.propTypes = { className: PropTypes.string };
 
 function ShieldCheckIcon({ className }) {
   return (
@@ -308,6 +307,7 @@ function ShieldCheckIcon({ className }) {
     </svg>
   );
 }
+ShieldCheckIcon.propTypes = { className: PropTypes.string };
 
 function ClockIcon({ className }) {
   return (
@@ -316,6 +316,7 @@ function ClockIcon({ className }) {
     </svg>
   );
 }
+ClockIcon.propTypes = { className: PropTypes.string };
 
 function GlobeIcon({ className }) {
   return (
@@ -324,6 +325,7 @@ function GlobeIcon({ className }) {
     </svg>
   );
 }
+GlobeIcon.propTypes = { className: PropTypes.string };
 
 function CheckIcon({ className }) {
   return (
@@ -332,3 +334,4 @@ function CheckIcon({ className }) {
     </svg>
   );
 }
+CheckIcon.propTypes = { className: PropTypes.string };
