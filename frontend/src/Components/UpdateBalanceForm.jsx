@@ -1,3 +1,4 @@
+import { BASE_URL } from "../config";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { ThreeCircles } from "react-loader-spinner";
@@ -7,7 +8,7 @@ import useHeaderData from "../Hooks/useHeaderData";
 import { useCallback, useEffect, useState } from "react";
 
 const UpdateBalanceForm = ({ data }) => {
-  const BaseUrl = import.meta.env.VITE_BASEURL;
+  const BaseUrl = BASE_URL;
   const { token } = useHeaderData();
   const [loading, setLoading] = useState(false);
   const [accountBalance, setAccountBalance] = useState([]);

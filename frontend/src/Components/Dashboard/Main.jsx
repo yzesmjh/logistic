@@ -1,9 +1,10 @@
+import { BASE_URL } from "../../config";
 import { useCallback, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import useHeaderData from "../../Hooks/useHeaderData";
 
-const BaseUrl = import.meta.env.VITE_BASEURL;
+const BaseUrl = BASE_URL;
 
 // ── Status badge config ──────────────────────────────────────────────────────
 const STATUS_MAP = {

@@ -1,3 +1,4 @@
+import { BASE_URL } from "../config";
 import { Formik, FieldArray } from "formik";
 import * as Yup from "yup";
 import { ThreeCircles } from "react-loader-spinner";
@@ -9,7 +10,7 @@ import useHeaderData from "../Hooks/useHeaderData";
 import { useCallback, useEffect, useState } from "react";
 
 const AddDeliveryComment = ({ id }) => {
-const BaseUrl = import.meta.env.VITE_BASEURL;
+const BaseUrl = BASE_URL;
   const { token: fetchedToken } = useHeaderData();
 
   const [commentData, setCommentData] = useState(null); // Initialize as null

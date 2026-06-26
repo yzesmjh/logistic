@@ -1,10 +1,11 @@
+import { BASE_URL } from "../../config";
 import { useCallback, useEffect, useState } from "react";
 import axios from "axios";
 import Pagination from "../Pagination";
 import useHeaderData from "../../Hooks/useHeaderData";
 import PackageDataComponent from "../PackageDataComponent";
 
-const BaseUrl = import.meta.env.VITE_BASEURL;
+const BaseUrl = BASE_URL;
 
 export default function PackageMain() {
   const [packages, setPackages] = useState([]);

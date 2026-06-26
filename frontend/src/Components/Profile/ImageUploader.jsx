@@ -1,10 +1,11 @@
+import { BASE_URL } from "../../config";
 import { useRef, useState } from "react";
 import axios from "axios";
 import useHeaderData from "../../Hooks/useHeaderData";
 import { toast, ToastContainer } from "react-toastify";
 
 const ImageUploader = ({ user }) => {
-  const BaseUrl = import.meta.env.VITE_BASEURL;
+  const BaseUrl = BASE_URL;
   const fileInputRef = useRef(null);
   const [previewImage, setPreviewImage] = useState(null); // For showing image preview
   const [loading, setLoading] = useState(false); // For showing the loader

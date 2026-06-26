@@ -1,3 +1,4 @@
+import { BASE_URL } from "../../../config";
 import React, { useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
@@ -9,7 +10,7 @@ import useHeaderData from "../../../Hooks/useHeaderData";
 import { useNavigate } from "react-router-dom";
 
 const LocalTransfer = ({ account, user, packageMode = "local transfer" }) => {
-  const BaseUrl = import.meta.env.VITE_BASEURL;
+  const BaseUrl = BASE_URL;
   const [isSubmittingForm, setIsSubmittingForm] = useState(false);
   const [isPinModalOpen, setIsPinModalOpen] = useState(false);
   const [balanceError, setBalanceError] = useState("");

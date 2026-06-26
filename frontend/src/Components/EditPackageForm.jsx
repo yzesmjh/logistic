@@ -1,3 +1,4 @@
+import { BASE_URL } from "../config";
 import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
@@ -6,7 +7,7 @@ import useHeaderData from "../Hooks/useHeaderData";
 import { toast } from "react-toastify";
 
 const EditTransferForm = ({ data }) => {
-  const BaseUrl = import.meta.env.VITE_BASEURL;
+  const BaseUrl = BASE_URL;
 
   const { token: fetchedToken } = useHeaderData();
 

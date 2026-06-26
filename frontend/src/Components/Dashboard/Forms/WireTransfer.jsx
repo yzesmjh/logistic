@@ -1,3 +1,4 @@
+import { BASE_URL } from "../../../config";
 import React, { useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
@@ -33,7 +34,7 @@ const validationSchema = Yup.object().shape({
 });
 
 const WireTransfer = ({ account, user }) => {
-  const BaseUrl = import.meta.env.VITE_BASEURL;
+  const BaseUrl = BASE_URL;
   const [isSubmittingForm, setIsSubmittingForm] = useState(false);
   const [isPinModalOpen, setIsPinModalOpen] = useState(false);
   const [selectedAccount, setSelectedAccount] = useState(null);

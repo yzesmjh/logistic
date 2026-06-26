@@ -1,3 +1,4 @@
+import { BASE_URL } from "../config";
 import { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 import PropTypes from "prop-types";
@@ -5,8 +6,8 @@ import PropTypes from "prop-types";
 // Derive the ping URL from the same env var used for API calls:
 //   VITE_BASEURL = "https://fedex-new.onrender.com/api/"
 //   PING_URL     = "https://fedex-new.onrender.com/ping"
-const PING_URL = import.meta.env.VITE_BASEURL
-  ? import.meta.env.VITE_BASEURL.replace(/\/api\/?$/, "/ping")
+const PING_URL = BASE_URL
+  ? BASE_URL.replace(/\/api\/?$/, "/ping")
   : null;
 
 // Skip the wakeup screen entirely in local development

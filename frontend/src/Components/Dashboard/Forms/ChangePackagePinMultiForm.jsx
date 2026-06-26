@@ -1,3 +1,4 @@
+import { BASE_URL } from "../../../config";
 import React, { useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
@@ -8,7 +9,7 @@ import useHeaderData from "../../../Hooks/useHeaderData";
 import { toast, ToastContainer } from "react-toastify";
 
 const ChangePackagePinMultiForm = ({ user }) => {
-  const BaseUrl = import.meta.env.VITE_BASEURL;
+  const BaseUrl = BASE_URL;
   const [showPassword, setShowPassword] = useState(false);
   const [showOldPin, setShowOldPin] = useState(false);
   const [showNewPin, setShowNewPin] = useState(false);

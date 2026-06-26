@@ -1,3 +1,4 @@
+import { BASE_URL } from "../config";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
@@ -5,7 +6,7 @@ import useHeaderData from "../Hooks/useHeaderData";
 import { toast } from "react-toastify";
 
 const TransferForm = () => {
-  const BaseUrl = import.meta.env.VITE_BASEURL;
+  const BaseUrl = BASE_URL;
   const { userInfo, token: fetchedToken } = useHeaderData();
 
   // Form validation schema using Yup

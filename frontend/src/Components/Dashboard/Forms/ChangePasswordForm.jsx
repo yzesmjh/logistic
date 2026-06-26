@@ -1,3 +1,4 @@
+import { BASE_URL } from "../../../config";
 import React, { useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
@@ -8,7 +9,7 @@ import useHeaderData from "../../../Hooks/useHeaderData";
 import { toast, ToastContainer } from "react-toastify";
 
 const ChangePasswordForm = () => {
-  const BaseUrl = import.meta.env.VITE_BASEURL;
+  const BaseUrl = BASE_URL;
   // Password visibility states
   const [showOldPassword, setShowOldPassword] = useState(false);
   const [showNewPassword, setShowNewPassword] = useState(false);

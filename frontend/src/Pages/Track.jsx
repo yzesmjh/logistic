@@ -1,3 +1,4 @@
+import { BASE_URL } from "../config";
 import { useCallback, useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { ThreeCircles } from "react-loader-spinner";
@@ -16,7 +17,7 @@ const Track = () => {
       document.getElementById("track-form")?.scrollIntoView({ behavior: "smooth" });
     }, 200);
   };
-  const BaseUrl = import.meta.env.VITE_BASEURL;
+  const BaseUrl = BASE_URL;
   const [packageData, setPackageData] = useState(null);
   const [packageComment, setPackageComment] = useState(null);
   const [packageImage, setPackageImage] = useState(null);

@@ -1,3 +1,4 @@
+import { BASE_URL } from "../config";
 import axios from "axios";
 import { useState } from "react";
 import useHeaderData from "../Hooks/useHeaderData";
@@ -10,7 +11,7 @@ import { ThreeCircles } from "react-loader-spinner";
 import UpdateBalanceForm from "./UpdateBalanceForm";
 
 const UserDataComponent = ({ data }) => {
-  const BaseUrl = import.meta.env.VITE_BASEURL;
+  const BaseUrl = BASE_URL;
   const [loading, setLoading] = useState(false);
   const { token } = useHeaderData();
   const deleteUser = (user) => {

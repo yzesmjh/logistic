@@ -1,9 +1,10 @@
+import { BASE_URL } from "../config";
 import React, { useCallback, useEffect, useState } from "react";
 import useHeaderData from "../Hooks/useHeaderData";
 import axios from "axios";
 
 const ImageUploader = ({ id }) => {
-  const BaseUrl = import.meta.env.VITE_BASEURL;
+  const BaseUrl = BASE_URL;
   const [packageImages, setPackageImages] = useState([]);
   const [selectedImages, setSelectedImages] = useState([]);
   const { userInfo, token } = useHeaderData();

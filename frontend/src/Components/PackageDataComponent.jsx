@@ -1,3 +1,4 @@
+import { BASE_URL } from "../config";
 import React, { useState } from "react";
 import Modal from "./Modal";
 import { toast } from "react-toastify";
@@ -9,7 +10,7 @@ import ImageUploader from "./ImageUploader";
 import AddDeiveryComment from "./AddDeiveryComment";
 
 const PackageDataComponent = ({ data, type, original }) => {
-  const BaseUrl = import.meta.env.VITE_BASEURL;
+  const BaseUrl = BASE_URL;
   const { token } = useHeaderData();
   const [isCreating, setIsCreating] = useState(false);
 

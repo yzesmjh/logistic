@@ -1,11 +1,15 @@
 import { useState } from "react";
+import { createPortal } from "react-dom";
 import PropTypes from "prop-types";
 
 // ── Inner modal shell ────────────────────────────────────────────────────────
+// Rendered via createPortal onto document.body so it escapes any parent
+// CSS transform (the Aside slide-in uses translateX, which would otherwise
+// confine a `position:fixed` child to the sidebar bounds).
 const MyModal = ({ isOpen, onClose, children, title }) => {
   if (!isOpen) return null;
 
-  return (
+  return createPortal(
     <div className="fixed inset-0 flex items-center justify-center z-[200] p-4">
       {/* Backdrop — click to close */}
       <div
@@ -14,9 +18,9 @@ const MyModal = ({ isOpen, onClose, children, title }) => {
         aria-hidden="true"
       />
 
-      {/* Content card — `relative` is required so z-index beats the backdrop */}
+      {/* Content card — `relative` beats the backdrop's z-index */}
       <div className="relative bg-white rounded-2xl shadow-2xl w-full max-w-lg max-h-[90vh] flex flex-col">
-        {/* Header */}
+        {/* Modal header */}
         <div className="flex items-center justify-between px-6 py-4 border-b border-gray-100 flex-shrink-0">
           <h2 className="text-base font-bold text-gray-900">{title}</h2>
           <button
@@ -33,7 +37,8 @@ const MyModal = ({ isOpen, onClose, children, title }) => {
           {children}
         </div>
       </div>
-    </div>
+    </div>,
+    document.body   // ← teleport outside all transforms
   );
 };
 

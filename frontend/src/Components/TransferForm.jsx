@@ -1,3 +1,4 @@
+import { BASE_URL } from "../config";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
@@ -6,7 +7,7 @@ import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 
 const TransferForm = () => {
-  const BaseUrl = import.meta.env.VITE_BASEURL;
+  const BaseUrl = BASE_URL;
   const navigate = useNavigate();
 
   const { token: fetchedToken } = useHeaderData();

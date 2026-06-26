@@ -1,3 +1,4 @@
+import { BASE_URL } from "../config";
 import React, { useState } from "react";
 import Modal from "./Modal";
 import { toast } from "react-toastify";
@@ -6,7 +7,7 @@ import useHeaderData from "../Hooks/useHeaderData";
 import EditPackageForm from "./EditPackageForm";
 
 const DataComponent = ({ data, type }) => {
-  const BaseUrl = import.meta.env.VITE_BASEURL;
+  const BaseUrl = BASE_URL;
   const { token } = useHeaderData();
   const deleteUser = (data) => {
     // Ask if user should be deleted

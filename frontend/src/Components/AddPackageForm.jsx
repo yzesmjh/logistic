@@ -1,3 +1,4 @@
+import { BASE_URL } from "../config";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { ThreeCircles } from "react-loader-spinner";
@@ -6,7 +7,7 @@ import { toast, ToastContainer } from "react-toastify";
 import useHeaderData from "../Hooks/useHeaderData";
 
 const AddPackageForm = ({ data }) => {
-const BaseUrl = import.meta.env.VITE_BASEURL;
+const BaseUrl = BASE_URL;
 
   const { token } = useHeaderData();
   const formik = useFormik({

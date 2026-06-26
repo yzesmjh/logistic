@@ -1,3 +1,4 @@
+import { BASE_URL } from "../../config";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Modal from "../Modal";
@@ -5,7 +6,7 @@ import AddBeneficiary from "./Forms/AddBeneficiary";
 import useHeaderData from "../../Hooks/useHeaderData";
 
 const Beneficiary = () => {
-  const BaseUrl = import.meta.env.VITE_BASEURL;
+  const BaseUrl = BASE_URL;
   const [users, setUsers] = useState([]);
   const { token } = useHeaderData();
 
