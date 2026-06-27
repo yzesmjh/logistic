@@ -39,42 +39,41 @@ const Pagination = ({
   };
 
   return (
-    <div className="container mx-auto p-4">
-      <table className="min-w-full leading-normal">
-        <thead>
-          <tr>
-            {header.map(
-              (item, index) =>
-                item != "_id" && (
-                  <th
-                    key={index}
-                    className={`px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider`}
-                  >
-                    {item}
-                  </th>
-                )
-            )}
+    <div className="p-4">
+      {/* Horizontal scroll wrapper — keeps the table usable on mobile */}
+      <div className="overflow-x-auto -mx-4 px-4">
+        <table className="min-w-full leading-normal whitespace-nowrap">
+          <thead>
+            <tr>
+              {header.map(
+                (item, index) =>
+                  item !== "_id" && (
+                    <th
+                      key={index}
+                      className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider"
+                    >
+                      {item}
+                    </th>
+                  )
+              )}
+              <th className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider sticky right-0">
+                Action
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {getPaginatedData().map((d, idx) => (
+              <RenderComponent
+                key={idx}
+                data={d}
+                type={type}
+                original={original}
+              />
+            ))}
+          </tbody>
+        </table>
+      </div>
 
-            <th
-              className={`px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider`}
-            >
-              Action
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          {/* Display Data */}
-
-          {getPaginatedData().map((d, idx) => (
-            <RenderComponent
-              key={idx}
-              data={d}
-              type={type}
-              original={original}
-            />
-          ))}
-        </tbody>
-      </table>
       {/* Pagination Controls */}
       <div className="pagination flex justify-center items-center mt-4">
         {/* Previous Button */}
