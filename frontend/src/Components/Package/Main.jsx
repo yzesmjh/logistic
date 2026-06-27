@@ -4,6 +4,8 @@ import axios from "axios";
 import Pagination from "../Pagination";
 import useHeaderData from "../../Hooks/useHeaderData";
 import PackageDataComponent from "../PackageDataComponent";
+import Modal from "../Modal";
+import AddPackageForm from "../AddPackageForm";
 
 const BaseUrl = BASE_URL;
 
@@ -63,6 +65,13 @@ export default function PackageMain() {
             <p className="text-sm text-gray-400 mt-0.5">
               {packages.length} shipment{packages.length !== 1 ? "s" : ""} total
             </p>
+          </div>
+          <div className="w-40">
+            <Modal
+              caption="+ Add Package"
+              captionButton={true}
+              modalContent={<AddPackageForm />}
+            />
           </div>
         </div>
 
