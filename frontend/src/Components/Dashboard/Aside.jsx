@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
 import Modal from "../Modal";
 import AddUserForm from "../AddUserForm";
+import TransferForm from "../TransferForm";
 import PropTypes from "prop-types";
 
 // ── Inline SVG icons (no Font Awesome dependency) ──────────────────────────
@@ -131,6 +132,15 @@ export default function Aside({ user, isOpen, onClose }) {
               {user?.role ?? "USER"}
             </span>
           </div>
+        </div>
+
+        {/* ── Send Package CTA ────────────────────────────────────────── */}
+        <div className="px-4 pb-3">
+          <Modal
+            caption="＋  Send Package"
+            captionButton={true}
+            modalContent={<TransferForm token={user?.token} />}
+          />
         </div>
 
         {/* ── Navigation ──────────────────────────────────────────────── */}

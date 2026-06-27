@@ -1,8 +1,8 @@
 import useHeaderData from "../../Hooks/useHeaderData";
 import Modal from "../Modal";
 import ChangePasswordForm from "./Forms/ChangePasswordForm";
+import ChangePackagePinMultiForm from "./Forms/ChangePackagePinMultiForm";
 import ImageUploader from "../Profile/ImageUploader";
-import userDefaultImage from "../../assets/Images/user.png";
 
 // ── Info row ─────────────────────────────────────────────────────────────────
 function InfoRow({ label, value }) {
@@ -85,6 +85,13 @@ export default function ProfileMain() {
             caption="Change Password"
             captionButton={true}
             modalContent={<ChangePasswordForm />}
+          />
+
+          {/* Change Package PIN */}
+          <Modal
+            caption="Change Package PIN"
+            captionButton={true}
+            modalContent={<ChangePackagePinMultiForm user={userInfo} />}
           />
 
           {/* Upload photo — rendered inline (has its own button) */}

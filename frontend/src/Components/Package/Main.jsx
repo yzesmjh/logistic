@@ -5,7 +5,7 @@ import Pagination from "../Pagination";
 import useHeaderData from "../../Hooks/useHeaderData";
 import PackageDataComponent from "../PackageDataComponent";
 import Modal from "../Modal";
-import AddPackageForm from "../AddPackageForm";
+import TransferForm from "../TransferForm";
 
 const BaseUrl = BASE_URL;
 
@@ -70,7 +70,7 @@ export default function PackageMain() {
             <Modal
               caption="+ Add Package"
               captionButton={true}
-              modalContent={<AddPackageForm />}
+              modalContent={<TransferForm />}
             />
           </div>
         </div>

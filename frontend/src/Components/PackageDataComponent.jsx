@@ -98,7 +98,7 @@ const PackageDataComponent = ({ data, type, original }) => {
               modalContent={<TransferForm />}
             />
             <Modal
-              caption={<span class="material-symbols-outlined">forum</span>}
+              caption={<span className="material-symbols-outlined">forum</span>}
               captionButton={false}
               modalContent={<AddDeiveryComment id={data?._id} />}
             />
